@@ -21,13 +21,10 @@ docker-build:
 api-init: api-composer-install api-wait-db api-migrations
 
 api-composer-install:
-	docker-compose run --rm api-php-cli composer install
+	docker-compose run --rm php-cli composer install
 
 api-wait-db:
-	docker-compose run --rm api-php-cli wait-for-it api-postgres:5432 -t 30
+	docker-compose run --rm php-cli wait-for-it postgres:5432 -t 30
 
 api-migrations:
-	docker-compose run --rm api-php-cli composer app migrations:migrate
-
-frontend-yarn-install:
-	docker-compose run --rm frontend-node-cli yarn install
+	docker-compose run --rm php-cli composer app migrations:migrate
