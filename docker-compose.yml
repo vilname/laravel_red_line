@@ -10,6 +10,12 @@ services:
         depends_on:
             - php-fpm
 
+    node-cli:
+        build:
+            context: docker/development/node
+        volumes:
+            - ./:/app
+
     php-fpm:
         build:
             context: docker/development/php-fpm
