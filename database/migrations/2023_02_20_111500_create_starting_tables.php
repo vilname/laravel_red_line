@@ -24,9 +24,10 @@ return new class extends Migration
             $table->timestamp('updated_at')->useCurrent();
         });
 
-        Schema::create('favorites', function (Blueprint $table) {
+        Schema::create('product_user', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('product_id')->constrained();
+            $table->unique(['user_id', 'product_id'], 'unique_user_id_product_id_index');
         });
 
         Schema::create('reviews', function (Blueprint $table) {
@@ -51,7 +52,7 @@ return new class extends Migration
     {
         Schema::dropIfExists('review_files');
         Schema::dropIfExists('reviews');
-        Schema::dropIfExists('favorites');
+        Schema::dropIfExists('product_user');
         Schema::dropIfExists('products');
         Schema::dropIfExists('sections');
     }
