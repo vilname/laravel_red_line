@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PopularProductController;
 use App\Http\Controllers\ProductUserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
@@ -22,6 +23,8 @@ Route::get('/products', [ProductController::class, 'index'])->name('productIndex
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('productEdit');
 
 Route::post('/product-user/store', [ProductUserController::class, 'store']);
+
+Route::get('/popular-product/index', [PopularProductController::class, 'index'])->name('popularProductIndex');
 
 Route::post('/review/{productId}/store', [ReviewController::class, 'store'])->name('reviewStore');
 

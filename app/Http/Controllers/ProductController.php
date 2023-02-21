@@ -17,7 +17,7 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = $this->indexQuery->handle(self::PAGE_SIZE);
+        $products = $this->indexQuery->query(self::PAGE_SIZE);
 
         return view('product.index', [
             'products' => $products

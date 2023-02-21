@@ -13,7 +13,7 @@ class IndexQuery
     {
     }
 
-    public function handle(int $pageSize): LengthAwarePaginator
+    public function query(int $pageSize): LengthAwarePaginator
     {
         return $this->productRepository->getListPagination($pageSize);
     }
