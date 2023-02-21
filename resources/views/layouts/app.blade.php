@@ -33,7 +33,7 @@
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-auto">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/products">Продукты</a>
+                                    <a class="nav-link" href="{{ URL::route('productIndex') }}">Продукты</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/reviews">отзывы</a>
@@ -85,6 +85,6 @@
             @yield('content')
         </main>
     </div>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 </html>

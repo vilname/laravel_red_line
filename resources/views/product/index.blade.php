@@ -9,10 +9,10 @@
             <div class="col-1"><b></b></div>
             @foreach($products as $product)
                 <div class="col-3">{{$product->id}}</div>
-                <div class="col-3">{{$product->name}}</div>
+                <div class="col-3"><a href="{{ URL::route('productEdit', ['id' => $product->id]) }}">{{$product->name}}</a></div>
                 <div class="col-2">{{$product->price}}</div>
                 <div class="col-3">{{$product->section->name}}</div>
-                <div class="col-1 btn" onclick="changeFavoriteStatus(this, {{$product->id}})">
+                <div class="col-1 btn" onclick="changeFavoriteStatus(this)" data-product_id="{{$product->id}}">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                          fill="@if($product->users->isNotEmpty()) red @else currentColor @endif"
                          class="bi bi-arrow-through-heart" viewBox="0 0 16 16">

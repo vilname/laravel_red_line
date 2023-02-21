@@ -18,13 +18,11 @@ docker-pull:
 docker-build:
 	docker-compose build
 
-api-init: api-composer-install api-wait-db api-migrations
-
-api-composer-install:
+composer-install:
 	docker-compose run --rm php-cli composer install
 
-api-wait-db:
-	docker-compose run --rm php-cli wait-for-it postgres:5432 -t 30
+init-migrations:
+	docker-compose run --rm php-cli php artisan migrate
 
-api-migrations:
-	docker-compose run --rm php-cli composer app migrations:migrate
+init-seed:
+	docker-compose run --rm php-cli php artisan db:seed

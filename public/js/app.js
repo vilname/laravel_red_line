@@ -1,6 +1,6 @@
 const csrfToken = document.querySelector('meta[name="csrf-token"]').content
 
-function changeFavoriteStatus(context, idProduct)
+function changeFavoriteStatus(context)
 {
     let svgFavorite = context.querySelector('svg');
 
@@ -12,7 +12,7 @@ function changeFavoriteStatus(context, idProduct)
             'X-CSRF-TOKEN': csrfToken
         },
         body: JSON.stringify({
-            'productId': idProduct
+            'productId': context.dataset.product_id
         })
     })
         .then( (response) => {
