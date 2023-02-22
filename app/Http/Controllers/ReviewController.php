@@ -15,8 +15,6 @@ class ReviewController extends Controller
     {
         $this->storeHandler->handle($reviewStoreRequest, $productId);
 
-//        $reviewStoreRequest->session()->flash('success', 'Комментарий добавлен');
-
         return back()->with('success', 'Комментарий добавлен');
     }
 }

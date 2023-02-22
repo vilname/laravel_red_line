@@ -42,7 +42,7 @@ return new class extends Migration
         Schema::create('review_files', function (Blueprint $table) {
             $table->id();
             $table->string('path');
-            $table->foreignId('review_id')->constrained();
+            $table->foreignId('review_id')->constrained()->onDelete('cascade');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

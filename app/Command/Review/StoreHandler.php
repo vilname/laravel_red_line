@@ -22,9 +22,9 @@ class StoreHandler
                     'product_id' => $productId,
                 ]);
 
-                if ($reviewStoreRequest->hasFile('files')) {
-                    foreach ($reviewStoreRequest->file('files') as $file) {
-                        $path = $file->store('reviews');
+                if ($reviewStoreRequest->hasFile('images')) {
+                    foreach ($reviewStoreRequest->file('images') as $image) {
+                        $path = $image->store('reviews');
 
                         ReviewFile::create([
                             'path' => $path,
