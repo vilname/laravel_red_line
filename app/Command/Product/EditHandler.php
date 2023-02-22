@@ -7,7 +7,7 @@ namespace App\Command\Product;
 use App\Models\Product;
 use Exception;
 
-class EditCommand
+class EditHandler
 {
     public function handle(int $id)
     {

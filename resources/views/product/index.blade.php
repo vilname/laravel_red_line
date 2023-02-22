@@ -1,6 +1,21 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
+        <form action="{{route('productSearch')}}">
+            <div class="form-row align-items-center">
+                <div class="col-sm-3 my-1">
+                    <label class="sr-only" for="search">Поиск</label>
+                    <input type="text" class="form-control" id="search" name="search" placeholder="Поиск">
+                    @error('search')
+                    <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
+                </div>
+                <div class="col-auto my-1">
+                    <input type="submit" class="btn btn-primary" value="Submit" />
+                </div>
+            </div>
+        </form>
+
         <div class="row">
             <div class="col-3"><b>Id</b></div>
             <div class="col-3"><b>Название продукта</b></div>

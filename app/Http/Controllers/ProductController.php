@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Command\Product\EditCommand;
+use App\Command\Product\EditHandler;
+use App\Http\Requests\SearchProductRequest;
 use App\Query\Product\IndexQuery;
+use App\Query\Product\SearchQuery;
 
 class ProductController extends Controller
 {
@@ -11,7 +13,8 @@ class ProductController extends Controller
 
     public function __construct(
         private IndexQuery $indexQuery,
-        private EditCommand $editCommand
+        private SearchQuery $searchQuery,
+        private EditHandler $editHandler
     ) {
     }
 
@@ -26,10 +29,19 @@ class ProductController extends Controller
 
     public function edit(int $id)
     {
-        $product = $this->editCommand->handle($id);
+        $product = $this->editHandler->handle($id);
 
         return view('product.edit', [
             'product' => $product
+        ]);
+    }
+
+    public function search(SearchProductRequest $request)
+    {
+        $products = $this->searchQuery->query($request->search);
+
+        return view('product.search', [
+            'products' => $products
         ]);
     }
 }

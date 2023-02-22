@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PopularProductController;
+use App\Http\Controllers\ProductSearchController;
 use App\Http\Controllers\ProductUserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/products', [ProductController::class, 'index'])->name('productIndex');
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('productEdit');
+Route::get('/products/search', [ProductController::class, 'search'])->name('productSearch');
 
 Route::post('/product-user/store', [ProductUserController::class, 'store']);
 
